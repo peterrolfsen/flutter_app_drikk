@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>695766442323-et2ovmts9hvcc8t9rrqfaaougadk9oiu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.695766442323-et2ovmts9hvcc8t9rrqfaaougadk9oiu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAbl7YuFKqMT5loIxqlOwCiASuVA4FT7m4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>695766442323</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flutterappdrikk</string>
+	<key>PROJECT_ID</key>
+	<string>spm-ios</string>
+	<key>STORAGE_BUCKET</key>
+	<string>spm-ios.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:695766442323:ios:7e47aab8191e79ff11c1a6</string>
+	<key>DATABASE_URL</key>
+	<string>https://spm-ios.firebaseio.com</string>
+</dict>
+</plist>
