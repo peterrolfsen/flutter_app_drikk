@@ -7,22 +7,26 @@ import 'dart:math';
 
 
 
+// ignore: must_be_immutable
 class MixPage extends StatelessWidget {
   final _random = new Random();
 
-
+//En funksjon som lar deg mixe kategoerier
   convertCart(list){
     var randElem = list[_random.nextInt(list.length)];
+    //setter en max av spørsmål mix kan inneholde
     var spmPerKat = (99/catToAdd.length).ceil();
     print(catToAdd);
     for(var dicKey in catToAdd) {
       print(dicKey);
+      //shuffler alle spørsmålene så de kommer i tilfeldig rekkefølge.
       list[dicKey].shuffle();
       for (var i = 0; i < spmPerKat; i++) {
         print(catToAdd.length);
         print(spmPerKat);
 
         print("To add" + list[dicKey][i]);
+        //Sjekker at spørsmålet ikke kommer to ganger
         if(categories.contains(list[dicKey][i])){
           print("Already in list: "+ list[dicKey][i]);
           print("Added instead: "+ list[dicKey][i+1]);
@@ -36,6 +40,7 @@ class MixPage extends StatelessWidget {
 
       }
     }
+    //shuffler alt igjen.
     categories.shuffle();
     print(categories.length);
   }
@@ -52,6 +57,7 @@ class MixPage extends StatelessWidget {
     convertCart(dicCategories);
     List<int> tens = [10,20,30,40,50,60,70,80,90,100];
 
+    //Setter inn en safety på tilbakeknappen. Rekkefølgen på kategoriene resettes om man går tilbake.
     Future<bool> _onBackPressed() {
       return showDialog(
         context: context,

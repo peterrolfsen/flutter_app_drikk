@@ -6,8 +6,7 @@ import 'mix.dart';
 
 List catToAdd = [];
 
-// entry point for the app,
-// the => operator is shorthand for {} when there is only one line of code
+// Denne siden lager layout til MIX siden hvor man blander kategoriene.
 void main() => runApp(Mix());
 
 class Mix extends StatefulWidget {
@@ -46,7 +45,6 @@ class _MyAppState extends State<Mix> {
 
 
 
-// replace this method with code in the examples below
   Widget myLayoutWidget() {
 
 

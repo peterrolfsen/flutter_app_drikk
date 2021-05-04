@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+//Setter standardfarger på de forskjellige kategoriene
 var backgroundColor = Color.fromRGBO(51, 51, 67, 1);
 var standardColor = Color.fromRGBO(233, 99, 112, 1);
 var blikjentColor = Color.fromRGBO(234, 107, 112, 1);
@@ -37,6 +37,13 @@ var guttaColor = Color.fromRGBO(237, 123, 113, 1);
 var sexColor = Color.fromRGBO(237, 128, 113, 1);
 var mixColor= Color.fromRGBO(111, 207, 151, 1);
 var utColor = Color.fromRGBO(119, 196, 187, 1);
+var divider =             Divider(
+  color: Color.fromRGBO(83, 83, 107, 1),
+  height: 25,
+  indent: 135,
+  endIndent: 135,
+  thickness: 5,
+);
 
 class MainPage extends StatelessWidget {
 
@@ -44,7 +51,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-
+    //Lager forsiden som loades inn når appen starter
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Center(
@@ -64,6 +71,7 @@ class MainPage extends StatelessWidget {
               child: new Text("Play", style: TextStyle(fontStyle: FontStyle.italic)),
               onPressed: () {
                 navigateToSubPage(context);
+                //Sjekker hvor mange spørsmål det er i hver kategori for å sikre at det er over 100
                 print("Standard: " + dicCategories['Standard'].length.toString());
                 print("Bli kjent: " + dicCategories['Bli kjent'].length.toString());
                 print("Jentevors: " + dicCategories['Jentevors'].length.toString());
@@ -74,6 +82,7 @@ class MainPage extends StatelessWidget {
               splashColor: Colors.redAccent,
             ),
 
+            //Lager "hvordan spille" knapp
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: MaterialButton(
@@ -102,11 +111,11 @@ class MainPage extends StatelessWidget {
     );
   }
 
-
-
+  //Navigerer til kategorimenyen
   Future navigateToSubPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SubPage()));
   }
+  //navigerer til "hvordan spille"
   Future navigateToRulePage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => RulesPage()));
   }
@@ -115,15 +124,17 @@ class MainPage extends StatelessWidget {
 class SubPage extends StatelessWidget {
   TextEditingController _textFieldController = TextEditingController();
 
-
+//Regelsiden / Hvordan spille siden
   @override
   Widget build(BuildContext context) {
     Future<bool> _cRules() {
       return showDialog(
         context: context,
-        builder: (context) => new AlertDialog(
+        builder: (context) =>
+        new AlertDialog(
           title: new Text('Regler'),
-          content: new Text('Når dere spiller utfordring, kaster man først boksen, så flipper man kortet og mottakeren får en utfordring som må utføres før boksen kastes videre av den som tok utfordringen. Om man nekter å gjøre utfordringen, må man chugge'),
+          content: new Text(
+              'Når dere spiller utfordring, kaster man først boksen, så flipper man kortet og mottakeren får en utfordring som må utføres før boksen kastes videre av den som tok utfordringen. Om man nekter å gjøre utfordringen, må man chugge'),
           actions: <Widget>[
             new GestureDetector(
               onTap: () => Navigator.of(context).pop(false),
@@ -136,6 +147,7 @@ class SubPage extends StatelessWidget {
           false;
     }
 
+    //Kategorimenyen
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(
@@ -146,7 +158,6 @@ class SubPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: MaterialButton(
@@ -155,9 +166,10 @@ class SubPage extends StatelessWidget {
                 ),
                 height: 46.0,
                 minWidth: 130.0,
-                color: standardColor,
+                color: blikjentColor,
                 textColor: Colors.white,
-                child: new Text("Standard", style: TextStyle(fontStyle: FontStyle.italic)),
+                child: new Text(
+                    "Standard", style: TextStyle(fontStyle: FontStyle.italic)),
                 onPressed: () {
                   navigateToStandardPage(context);
                 },
@@ -176,7 +188,8 @@ class SubPage extends StatelessWidget {
                 minWidth: 130.0,
                 color: blikjentColor,
                 textColor: Colors.white,
-                child: new Text("Bli kjent", style: TextStyle(fontStyle: FontStyle.italic)),
+                child: new Text(
+                    "Bli kjent", style: TextStyle(fontStyle: FontStyle.italic)),
                 onPressed: () {
                   navigateToBlikjentPage(context);
                 },
@@ -193,7 +206,8 @@ class SubPage extends StatelessWidget {
                 minWidth: 130.0,
                 color: jenteColor,
                 textColor: Colors.white,
-                child: new Text("Jentevors", style: TextStyle(fontStyle: FontStyle.italic)),
+                child: new Text(
+                    "Jentevors", style: TextStyle(fontStyle: FontStyle.italic)),
                 onPressed: () {
                   navigateToJentaPage(context);
                 },
@@ -210,7 +224,8 @@ class SubPage extends StatelessWidget {
                 minWidth: 130.0,
                 color: guttaColor,
                 textColor: Colors.white,
-                child: new Text("Guttastemning", style: TextStyle(fontStyle: FontStyle.italic)),
+                child: new Text("Guttastemning",
+                    style: TextStyle(fontStyle: FontStyle.italic)),
                 onPressed: () {
                   navigateToGuttaPage(context);
                 },
@@ -227,20 +242,15 @@ class SubPage extends StatelessWidget {
                 minWidth: 130.0,
                 color: sexColor,
                 textColor: Colors.white,
-                child: new Text("Sex", style: TextStyle(fontStyle: FontStyle.italic)),
+                child: new Text(
+                    "Sex", style: TextStyle(fontStyle: FontStyle.italic)),
                 onPressed: () {
                   navigateToSexPage(context);
                 },
                 splashColor: Colors.redAccent,
               ),
             ),
-            Divider(
-              color: Color.fromRGBO(83, 83, 107, 1),
-              height: 25,
-              indent: 135,
-              endIndent: 135,
-              thickness: 5,
-            ),
+            divider,
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: MaterialButton(
@@ -251,42 +261,35 @@ class SubPage extends StatelessWidget {
                 minWidth: 130.0,
                 color: mixColor,
                 textColor: Colors.white,
-                child: new Text("Mix", style: TextStyle(fontStyle: FontStyle.italic)),
+                child: new Text(
+                    "Mix", style: TextStyle(fontStyle: FontStyle.italic)),
                 onPressed: () {
                   navigateToMixPage(context);
-
                 },
                 splashColor: Colors.redAccent,
               ),
             ),
 
-            Divider(
-              color: Color.fromRGBO(83, 83, 107, 1),
-              height: 25,
-              indent: 135,
-              endIndent: 135,
-              thickness: 5,
-            ),
-
+            divider,
 
             Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: MaterialButton(
-                shape: new RoundedRectangleBorder(
+                  padding: const EdgeInsets.all(4.0),
+                  child: MaterialButton(
+                  shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(23.0),
-                ),
-                height: 46.0,
-                minWidth: 130.0,
-                color: utColor,
-                textColor: Colors.white,
+                  ),
+                  height: 46.0,
+                  minWidth: 130.0,
+                  color: utColor,
+                  textColor: Colors.white,
 
-                child: new Text("Utfordringer", style: TextStyle(fontStyle: FontStyle.italic)),
-                onPressed: () {
+                  child: new Text("Utfordringer", style: TextStyle(fontStyle: FontStyle.italic)),
+                  onPressed: () {
                   navigateToChallengePage(context);
                   _cRules();
-                },
-                splashColor: Colors.redAccent,
-              ),
+                  },
+                  splashColor: Colors.redAccent,
+                  ),
             ),
 
           ],
@@ -295,42 +298,52 @@ class SubPage extends StatelessWidget {
 
     );
 
-    void onPressedChallenge(){
-      navigateToChallengePage(context);
-      _cRules();
-    }
-
 
   }
 
-
-
+//Navigasjonslenker for å komme seg inn til de forskjellige kategoriene.
   Future navigateToStandardPage(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => StandardPage()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => StandardPage()));
   }
+
   Future navigateToMixPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => Mix()));
   }
+
   Future navigateToChallengePage(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ChallengePage()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ChallengePage()));
   }
+
   Future navigateToGuttaPage(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => GuttavorsPage()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => GuttavorsPage()));
   }
+
   Future navigateToJentaPage(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => JentevorsPage()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => JentevorsPage()));
   }
+
   Future navigateToSexPage(context) async {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SexPage()));
   }
+
   Future navigateToBlikjentPage(context) async {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => BlikjentPage()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => BlikjentPage()));
   }
+
+
+//For å ta av et lag og komme tilbake til kategorimenyen
   void backToMainPage(context) {
     Navigator.pop(context);
   }
+
 }
 
+//Bygger et kort der det står et spørsmål
 Widget BuildCard(text, qNr, colorBackground, colorText) => new Container(
   child: new Center(
     child: new Container(
@@ -390,12 +403,16 @@ Widget BuildCard(text, qNr, colorBackground, colorText) => new Container(
 
   );
 
+
+//Ads, under utvikling
 @override
 void initState(){
   initState();
   Admob.initialize(ams.getAdMobAppId());
 
 }
+
+//Lager kort for når alle skal drikke som er hvert tiende spørsmål
 Widget BuildCardAll(text, qNr) => new Container(
   child: new Center(
     child: new Container(
@@ -465,6 +482,7 @@ Widget BuildCardAll(text, qNr) => new Container(
 final ams = AdMobService();
 
 
+//Bygger kategorisiden som inneholder alle kortene
 Widget buildPage(kategori, colorBackground, colorText){
 
   List<int> tens = [10,20,30,40,50,60,70,80,90,100];
@@ -481,6 +499,7 @@ Widget buildPage(kategori, colorBackground, colorText){
           padding: const EdgeInsets.all(30.0),
           scrollDirection: Axis.horizontal,
           children: List.generate(dicCategories[kategori].length,(index){
+            //sørger for at hvert tiende kort er et "alle drikker" kort
             for(var x in tens) {
               if (index == (x-1)){
                 return BuildCardAll(dicCategories[kategori][index].toString(), index);

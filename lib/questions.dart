@@ -547,7 +547,6 @@ var JenterGutter={
 "Hvem er mest kresen?",
 "Hvem har ligget med en kjendis?"
 "Hvem blir gift først?",
-"Hvem har tinder gold?",
 "Hvem kunne ligget med en kjendis, bare fordi personen var kjent?",
 "Hvem har møtt flest fra tinder?",
 "Hvem har gått på flest smeller?",

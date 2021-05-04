@@ -23,12 +23,13 @@ class MyApp extends StatelessWidget {
 class ChallengePage extends StatelessWidget {
 
 
-
+//lager utfordringskortet som kan flippes rundt for å vise utfordringen.
   _renderContent(context, index, utfordring, svar) {
     return Card(
       elevation: 0.0,
       margin: EdgeInsets.only(left: 32.0, right: 32.0, top: 50.0, bottom: 30.0),
       color: Color(0x00000000),
+      //bruker flipcard
       child: FlipCard(
         direction: FlipDirection.HORIZONTAL,
         speed: 1000,
